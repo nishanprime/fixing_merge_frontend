@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
+import { ToastContainer } from 'react-toastify';
 
 import {
   Box,
@@ -34,21 +35,34 @@ interface AdminLayoutProps {
 const AdminLayout = ({ title, children }: AdminLayoutProps) => {
   const { getRestaurantRequiredInfo, loading, restaurantOwner } =
     useContext(AppContext);
-  const router = useRouter();
+  const [fetched, setFetched] = useState(false);
   useEffect(() => {
-    getRestaurantRequiredInfo();
+    const fetchData = async () => {
+      await getRestaurantRequiredInfo();
+      setFetched(true);
+    };
+    fetchData();
   }, []);
+  console.log(
+    restaurantOwner,
+    ':searching for res owner, the loading state is: ',
+    loading
+  );
+  const router = useRouter();
 
   if (loading) return <Loader />;
+  if (!fetched) return <Loader />;
 
-  if (!restaurantOwner) {
+  if (!loading && !restaurantOwner) {
+    console.log('No info found, redirecting to login');
     return <Redirect to="/auth/login" redirect={router.asPath} />;
   }
-
+  console.log('Finally found');
   const SidebarIsOpen = true;
   return (
     <>
       <Header />
+      <ToastContainer />
       <Flex flexDirection="row" bg="#FAFAFA">
         <Sidebar />
         <Flex
