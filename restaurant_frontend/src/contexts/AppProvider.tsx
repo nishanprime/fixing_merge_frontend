@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import React, { createContext, useContext, useMemo, useState } from 'react';
 import IAppContext from '../Interfaces/IAppContext';
 import { IRestaurant, IRestaurantOwner } from '../Interfaces';
 import { AuthService } from '../services';
@@ -28,13 +22,10 @@ const AppProvider = (props: any) => {
   const getRestaurantRequiredInfo = async () => {
     setLoading(true);
     const response = await AuthService.getRestaurantOwner();
-    // save this response to local storage
-    localStorage.setItem('restaurantOwner', JSON.stringify(response));
     setRestaurantOwner(response);
     // setRestaurant(response.restaurants);
     setLoading(false);
   };
-  // write useEffect to get restaurant owner info from local storage
 
   const value = useMemo(
     () => ({
@@ -46,7 +37,7 @@ const AppProvider = (props: any) => {
       restaurants,
       setRestaurant,
     }),
-    [restaurantOwner, loading, restaurants]
+    [restaurantOwner, restaurants, loading]
   );
 
   return (
