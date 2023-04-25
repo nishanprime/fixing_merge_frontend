@@ -9,71 +9,71 @@ export const sideMenuItems = [
     {
         name: "Dashboard",
         key: "dashboard",
-        url: "/admin/dashboard",
-        match: "/admin/dashboard",
+        url: "/",
+        match: "/",
         icon: MdOutlineDashboard
     },
     {
         name: "Auctions",
         key: "auctions",
-        url: "/admin/auctions",
-        match: "/admin/auctions",
+        url: "/auctions",
+        match: "/auctions",
         icon: RiAuctionLine
     },
     {
         name: "Menu Items",
         key: "menu",
-        url: "/admin/menu",
-        match: "/admin/menu",
+        url: "/menu",
+        match: "/menu",
         icon: IoFastFoodOutline,
         subMenuItems: [
             {
                 name: "Items",
                 key: "items",
-                url: "/admin/menu/items",
+                url: "/",
                 match: "/",
             },
             {
                 name: "Categories",
                 key: "categories",
-                url: "/admin/menu/categories",
-                match: "/admin/menu/categories",
+                url: "/menu/categories",
+                match: "/menu/categories",
             }
         ]
     },
     {
         name: "Customers",
         key: "customers",
-        url: "/admin/customers",
-        match: "/admin/customers",
+        url: "/customers",
+        match: "/customers",
         icon: BiUserCircle
     },
     {
         name: "Orders",
         key: "orders",
-        url: "/admin/orders",
-        match: "/admin/orders",
+        url: "/orders",
+        match: "/orders",
         icon: IoDocumentTextOutline
     },
     {
         name: "Reviews",
         key: "reviews",
-        url: "/admin/reviews",
-        match: "/admin/reviews",
+        url: "/reviews",
+        match: "/reviews",
         icon: MdOutlineReviews
     },
     {
         name: "Team",
         key: "team",
-        url: "/admin/team",
-        match: "/admin/team",
+        url: "/team",
+        match: "/team",
         icon: HiOutlineUserGroup
     },
     {
         name: "Settings",
         key: "settings",
-        url: "/admin/settings",
-        match: "/admin/settings",
+        url: "/settings",
+        match: "/settings",
         icon: BsGear
     },
 ]
